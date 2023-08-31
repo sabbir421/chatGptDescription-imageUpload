@@ -20,7 +20,8 @@ async function getChatGptResponse(prompt) {
       },
     });
     console.log("-------------------data--------------", response.data);
-    return response.data;
+    const content = response.data.choices[0].message.content;
+    return content;
   } catch (error) {
     console.error("Error fetching response from the API:", error.message);
     return null;
